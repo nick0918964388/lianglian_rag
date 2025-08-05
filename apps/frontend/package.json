@@ -1,0 +1,17 @@
+{
+  "name": "@lianglian-rag/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend application for Lianglian RAG Platform",
+  "scripts": {
+    "dev": "echo 'Frontend dev script to be implemented'",
+    "build": "echo 'Frontend build script to be implemented'",
+    "test": "echo 'Frontend test script to be implemented'",
+    "lint": "eslint . --config ../../packages/eslint-config-custom"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@lianglian-rag/eslint-config-custom": "*",
+    "@lianglian-rag/tsconfig": "*"
+  }
+}

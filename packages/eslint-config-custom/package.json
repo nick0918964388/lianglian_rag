@@ -1,0 +1,10 @@
+{
+  "name": "@lianglian-rag/eslint-config-custom",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "description": "Shared ESLint configuration for Lianglian RAG Platform",
+  "dependencies": {
+    "eslint": "^8.0.0"
+  }
+}

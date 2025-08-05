@@ -1,0 +1,21 @@
+{
+  "name": "lianglian-rag",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@lianglian-rag/frontend & npm run dev --workspace=@lianglian-rag/backend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces && npm run test:structure",
+    "test:structure": "node test/monorepo.test.js",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "keywords": ["monorepo", "rag", "fullstack"],
+  "author": "Lianglian Industrial Corporation",
+  "license": "ISC",
+  "description": "Modern RAG Query Platform for Lianglian Industrial Corporation"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@lianglian-rag/backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend application for Lianglian RAG Platform",
+  "scripts": {
+    "dev": "echo 'Backend dev script to be implemented'",
+    "build": "echo 'Backend build script to be implemented'",
+    "test": "echo 'Backend test script to be implemented'",
+    "lint": "eslint . --config ../../packages/eslint-config-custom"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@lianglian-rag/eslint-config-custom": "*",
+    "@lianglian-rag/tsconfig": "*"
+  }
+}
