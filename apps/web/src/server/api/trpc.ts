@@ -2,6 +2,7 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next';
 import { ZodError } from 'zod';
 import superjson from 'superjson';
+import { createAuthenticatedContext, type AuthenticatedContext } from './middleware/auth';
 
 interface CreateContextOptions {
   req?: CreateNextContextOptions['req'];
@@ -40,9 +41,24 @@ export const createTRPCRouter = t.router;
 
 export const publicProcedure = t.procedure;
 
-export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
-  // TODO: Add authentication check here when NextAuth is integrated
-  return next({
-    ctx,
-  });
+/**
+ * Protected procedure that requires authentication
+ * Automatically adds authenticated user context
+ */
+export const protectedProcedure = t.procedure.use(async ({ ctx, next }) => {
+  try {
+    // Create authenticated context using our middleware
+    const authContext = await createAuthenticatedContext(ctx.req as Request);
+    
+    // Continue with the authenticated context
+    return next({
+      ctx: {
+        ...ctx,
+        auth: authContext,
+      },
+    });
+  } catch (error) {
+    // Authentication middleware will throw appropriate tRPC errors
+    throw error;
+  }
 });
